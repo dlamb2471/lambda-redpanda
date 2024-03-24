@@ -49,9 +49,13 @@ The following prerequisites must be installed and configured in your working env
 
 ## Setting up the Redpanda Cluster
 
-If you do not already have a Redpanda deployment in AWS, you can find instructions on setting up and deploying Redpanda in EKS here:
+If you do not already have a Redpanda deployment in AWS, you can view the official Redpanda guide at the following location:
 
-[Setting up a Redpanda Cluster in EKS](Redpandasetup.md)
+* [Deploy a Redpanda Cluster in Amazon Elastic Kubernetes Service](https://docs.redpanda.com/current/deploy/deployment-option/self-hosted/kubernetes/eks-guide/)
+
+You can also find instructions on setting up and deploying Redpanda in EKS here using steps based on the offcial Redpanda guide linked above:
+
+* [Setting up a Redpanda Cluster in EKS](Redpandasetup.md)
 
 ## Collecting Information Before Using SAM
  
@@ -75,7 +79,7 @@ To use the AWS SAM CLI, you need the following tools.
 
 * AWS SAM CLI - [Install the AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
 
-During the deployment, you will be prompted to enter the information that we collected during the previous steps. We will use the SAM template to create the following:
+During the deployment, you will be prompted to enter the information that is needed for linking to your Redpanda deployment. We will use the SAM template to create the following:
 
 
 * Private Route 53 Hosted Zone with A name records for the Redpanda nodes.
@@ -89,7 +93,7 @@ Make sure that you are in the working directory with the template.yaml file clon
 sam deploy -t template.yaml --guided --capabilities CAPABILITY_NAMED_IAM
 ```
 
-During the guided deployment, you will be prompted to enter the parameters we have collected while setting up our Redpanda deployment. You will also need to specify a parameter prefix, which is a name that will be prepended on your Lambda function. Your input should look similar to the following:
+During the guided deployment, you will be prompted to enter the parameters we have needed to reference your Redpanda deployment. You will also need to specify a parameter prefix, which is a name that will be prepended on your Lambda function. Your input should look similar to the following:
 
 ```
 Setting default arguments for 'sam deploy'
